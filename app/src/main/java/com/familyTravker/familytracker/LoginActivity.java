@@ -2,13 +2,17 @@ package com.familyTravker.familytracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.familyTravker.familytracker.loginApi.LoginRequest;
 import com.familyTravker.familytracker.loginApi.LoginResponse;
 import com.familyTravker.familytracker.loginApi.LoginUserApiInstance;
@@ -24,7 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText editText_number;
     Button button_login;
     SessionManagement sessionManagement;
-
+    LottieAnimationView lottieAnimationView;
+    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +46,19 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String number=editText_number.getText().toString();
                 userLogin(number);
+                dialogBox();
             }
         });
+    }
+
+    private void dialogBox() {
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.loading);
+        dialog.getWindow().setLayout(1000, 1000);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        // dialog1.getWindow().setWindowAnimations(R.style.AnimationForDialog);
+        lottieAnimationView=dialog.findViewById(R.id.animationView);
+        dialog.show();
     }
 
     private void userLogin(String number) {
@@ -60,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                     LoginResponse loginResponse=response.body();
                     if (loginResponse.getData()!=null)
                     {
+                        dialog.cancel();
                         String message=loginResponse.getMessage();
                         Integer otpCode=loginResponse.getData();
                         Toast.makeText(getApplicationContext(),message ,Toast.LENGTH_LONG).show();
@@ -72,6 +89,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     }else
                     {
+                        dialog.cancel();
+                        String Errormessage=loginResponse.getMessage();
+                        Toast.makeText(getApplicationContext(),Errormessage ,Toast.LENGTH_LONG).show();
 
                     }
 
@@ -80,6 +100,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                dialog.cancel();
+                Toast.makeText(getApplicationContext(),"Something went wrong." ,Toast.LENGTH_LONG).show();
 
             }
         });
