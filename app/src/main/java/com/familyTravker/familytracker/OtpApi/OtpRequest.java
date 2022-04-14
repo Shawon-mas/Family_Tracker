@@ -1,6 +1,6 @@
-package com.familyTravker.familytracker.loginApi;
+package com.familyTravker.familytracker.OtpApi;
 
-public class LoginRequest {
+public class OtpRequest {
    private String child_user_number;
 
 

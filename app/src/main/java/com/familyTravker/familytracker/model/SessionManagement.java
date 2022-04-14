@@ -3,7 +3,7 @@ package com.familyTravker.familytracker.model;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.familyTravker.familytracker.loginApi.LoginRequest;
+import com.familyTravker.familytracker.OtpApi.OtpRequest;
 
 public class SessionManagement {
     SharedPreferences sharedPreferences;
@@ -15,7 +15,7 @@ public class SessionManagement {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
-    public void saveSession(LoginRequest loginRequest){
+    public void saveSession(OtpRequest loginRequest){
         String number=loginRequest.getChild_user_number();
         editor.putString(SESSION_KEY,number).commit();
 

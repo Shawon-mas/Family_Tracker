@@ -13,9 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.familyTravker.familytracker.loginApi.LoginRequest;
-import com.familyTravker.familytracker.loginApi.LoginResponse;
-import com.familyTravker.familytracker.loginApi.LoginUserApiInstance;
+import com.familyTravker.familytracker.OtpApi.OtpRequest;
+import com.familyTravker.familytracker.OtpApi.OtpResponse;
+import com.familyTravker.familytracker.OtpApi.OtpApiInstance;
 import com.familyTravker.familytracker.model.SessionManagement;
 import com.familyTravker.familytracker.view.HomeActivity;
 import com.familyTravker.familytracker.view.OtpActivity;
@@ -62,18 +62,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void userLogin(String number) {
-        LoginRequest loginRequest=new LoginRequest();
+        OtpRequest loginRequest=new OtpRequest();
         loginRequest.setChild_user_number(number);
 
 //+8801521451354
-        Call<LoginResponse> loginResponseCall = LoginUserApiInstance.getLoginInterfaceApi().userLogin(loginRequest);
-        loginResponseCall.enqueue(new Callback<LoginResponse>() {
+        Call<OtpResponse> loginResponseCall = OtpApiInstance.getLoginInterfaceApi().userLogin(loginRequest);
+        loginResponseCall.enqueue(new Callback<OtpResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(Call<OtpResponse> call, Response<OtpResponse> response) {
 
                 if (response.isSuccessful())
                 {
-                    LoginResponse loginResponse=response.body();
+                    OtpResponse loginResponse=response.body();
                     if (loginResponse.getData()!=null)
                     {
                         dialog.cancel();
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(Call<OtpResponse> call, Throwable t) {
                 dialog.cancel();
                 Toast.makeText(getApplicationContext(),"Something went wrong." ,Toast.LENGTH_LONG).show();
 

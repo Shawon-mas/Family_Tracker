@@ -1,9 +1,9 @@
-package com.familyTravker.familytracker.loginApi;
+package com.familyTravker.familytracker.OtpApi;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse {
+public class OtpResponse {
 
 
 @SerializedName("status")

@@ -1,11 +1,11 @@
-package com.familyTravker.familytracker.loginApi;
+package com.familyTravker.familytracker.OtpApi;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LoginUserApiInstance {
+public class OtpApiInstance {
     private static String BASE_URL = "https://familytracker.noman-it.com/api/";
     private static Retrofit retrofit;
 
@@ -25,8 +25,8 @@ public class LoginUserApiInstance {
         return retrofit;
     }
 
-    public static LoginInterfaceApi getLoginInterfaceApi() {
-        LoginInterfaceApi loginInterfaceApi = getRetrofitInstance().create(LoginInterfaceApi.class);
+    public static OtpInterfaceApi getLoginInterfaceApi() {
+        OtpInterfaceApi loginInterfaceApi = getRetrofitInstance().create(OtpInterfaceApi.class);
         return loginInterfaceApi;
     }
 }
