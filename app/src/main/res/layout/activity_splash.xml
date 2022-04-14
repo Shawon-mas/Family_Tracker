@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.SplashActivity">
+    <ImageView
+        android:id="@+id/splashImage"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/splash"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"/>
+    <TextView
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/_16sdp"
+        android:layout_centerHorizontal="true"
+        android:justificationMode="inter_word"
+        android:text="Welcome to Family\n Safety Tracker."
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_below="@id/splashImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

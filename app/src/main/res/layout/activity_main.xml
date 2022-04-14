@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+      <TextView
+          android:textStyle="bold"
+          android:textColor="@color/black"
+          android:paddingBottom="@dimen/_50sdp"
+          android:textSize="@dimen/_16sdp"
+          android:layout_centerHorizontal="true"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Login to your account"
+          android:layout_above="@id/editText_phoneNumber"
+          />
+
+    <EditText
+        android:id="@+id/editText_phoneNumber"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:hint="Enter Your Phone Number"
+        android:background="@drawable/login_shape"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"/>
+       <Button
+           android:id="@+id/login_button"
+           android:textColor="@color/white"
+           android:backgroundTint="#2458E8"
+           android:text="LOgin"
+           android:layout_marginTop="@dimen/_20sdp"
+           android:layout_marginLeft="@dimen/_10sdp"
+           android:layout_marginRight="@dimen/_10sdp"
+           android:layout_below="@id/editText_phoneNumber"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/_40sdp"/>
+</RelativeLayout>
