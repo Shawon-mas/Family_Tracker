@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.OtpActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+      android:layout_above="@id/user_number"
+      android:layout_centerHorizontal="true"
+      android:textSize="@dimen/_14sdp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Enter one time password sent on"/>
+  <TextView
+      android:paddingBottom="@dimen/_20sdp"
+      android:id="@+id/user_number"
+      android:layout_above="@id/otp_pin"
+      android:layout_centerHorizontal="true"
+      android:textSize="@dimen/_14sdp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:hint="number"/>
+  <in.aabhasjindal.otptextview.OtpTextView
+      android:layout_centerInParent="true"
+      android:id="@+id/otp_pin"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="#2C2A2A"
+      app:height="40dp"
+      app:width="40dp"
+      app:bar_enabled="true"
+      app:bar_height="2dp"
+      app:length="4"
+
+      app:otp_text_size="24dp"/>
+  <Button
+      android:layout_below="@id/otp_pin"
+      android:id="@+id/verify_button"
+      android:textSize="@dimen/_14sdp"
+      android:textAllCaps="false"
+      android:text="Verify Code"
+      android:layout_marginTop="@dimen/_20sdp"
+      android:layout_centerHorizontal="true"
+      android:layout_width="@dimen/_150sdp"
+      android:layout_height="@dimen/_40sdp"/>
+</RelativeLayout>
